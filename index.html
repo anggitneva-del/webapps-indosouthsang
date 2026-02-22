@@ -68,15 +68,14 @@
         <nav class="flex-1 overflow-y-auto py-6 space-y-1">
             <p class="px-6 text-[10px] font-bold text-slate-500 uppercase mb-3 tracking-wider">Materi Ajar</p>
             
-            <!-- Teks Negosiasi (Active) -->
-            <button onclick="location.reload()" class="nav-item active w-full text-left px-6 py-3 text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-800/50 transition flex justify-between items-center group">
+            <!-- Teks Negosiasi -->
+            <button onclick="switchTopic('negosiasi', this)" class="nav-item active w-full text-left px-6 py-3 text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-800/50 transition flex justify-between items-center group">
                 <span class="flex items-center gap-3"><i class="fa-solid fa-handshake-simple w-4"></i> Teks Negosiasi</span>
             </button>
 
-            <!-- Teks Biografi (Soon) -->
-            <button class="w-full text-left px-6 py-3 text-sm font-medium text-slate-600 cursor-not-allowed flex justify-between items-center">
+            <!-- Teks Biografi -->
+            <button onclick="switchTopic('biografi', this)" class="nav-item w-full text-left px-6 py-3 text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-800/50 transition flex justify-between items-center group">
                 <span class="flex items-center gap-3"><i class="fa-solid fa-user-pen w-4"></i> Teks Biografi</span>
-                <span class="text-[9px] bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded text-slate-500 font-bold">SOON</span>
             </button>
 
             <!-- Teks Puisi (Soon) -->
@@ -101,409 +100,612 @@
     <!-- 2. MAIN AREA -->
     <main class="flex-1 flex flex-col h-full overflow-hidden relative bg-[url('https://grainy-gradients.vercel.app/noise.svg')]">
         
-        <!-- Top Navigation (Pertemuan) -->
-        <header class="glass-header px-6 py-4 sticky top-0 z-20">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-5xl mx-auto w-full">
-                <div>
-                    <h2 class="text-lg font-bold text-white">📖 Teks Negosiasi</h2>
-                    <p class="text-xs text-slate-500 hidden md:block">Kelas 10 • Fase E</p>
-                </div>
-                
-                <!-- Pills Navigation -->
-                <div class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-700/50 w-full md:w-auto overflow-x-auto no-scrollbar gap-1">
-                    <button onclick="switchMeeting(1)" id="pill-m1" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-lg transition-all whitespace-nowrap border border-indigo-500">
-                        Pertemuan 1
-                    </button>
-                    <button onclick="switchMeeting(2)" id="pill-m2" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
-                        Pertemuan 2
-                    </button>
-                    <button onclick="switchMeeting(3)" id="pill-m3" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
-                        Pertemuan 3
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <!-- Content Area -->
-        <div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth" id="main-scroll">
-            <div class="max-w-4xl mx-auto pb-24">
-
-                <!-- ================= PERTEMUAN 1 ================= -->
-                <div id="meeting-1" class="meeting-content fade-in">
-                    <!-- Title Header -->
-                    <div class="mb-8">
-                        <span class="text-indigo-400 font-bold text-xs tracking-wider uppercase mb-2 block">Pengenalan Materi</span>
-                        <h3 class="text-3xl md:text-4xl font-extrabold text-white">Apa Itu Negosiasi? 🤔</h3>
+        <!-- SCROLLABLE CONTAINER -->
+        <div class="flex-1 overflow-y-auto" id="main-scroll">
+            
+            <!-- ======================= TOPIC: TEKS NEGOSIASI ======================= -->
+            <div id="topic-negosiasi" class="topic-content block">
+                <!-- Top Navigation (Pertemuan) -->
+                <header class="glass-header px-6 py-4 sticky top-0 z-20">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-5xl mx-auto w-full">
+                        <div>
+                            <h2 class="text-lg font-bold text-white">📖 Teks Negosiasi</h2>
+                            <p class="text-xs text-slate-500 hidden md:block">Kelas 10 • Fase E</p>
+                        </div>
+                        
+                        <!-- Pills Navigation -->
+                        <div class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-700/50 w-full md:w-auto overflow-x-auto no-scrollbar gap-1">
+                            <button onclick="switchMeeting('negosiasi', 1)" id="pill-negosiasi-m1" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-lg transition-all whitespace-nowrap border border-indigo-500">
+                                Pertemuan 1
+                            </button>
+                            <button onclick="switchMeeting('negosiasi', 2)" id="pill-negosiasi-m2" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 2
+                            </button>
+                            <button onclick="switchMeeting('negosiasi', 3)" id="pill-negosiasi-m3" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 3
+                            </button>
+                        </div>
                     </div>
+                </header>
 
-                    <!-- Tabs P1 -->
-                    <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
-                        <button onclick="switchTab('p1-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
-                        <button onclick="switchTab('p1-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
-                        <button onclick="switchTab('p1-kuis', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Kuis</button>
-                    </div>
-
-                    <!-- P1: MATERI -->
-                    <div id="p1-materi" class="content-section fade-in">
-                        <div class="glass-card p-6 rounded-2xl mb-6">
-                            <div class="aspect-video rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl relative group">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/fW99pBLtNSo" title="Video Negosiasi" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <p class="text-center text-xs text-slate-500 mt-3 font-medium">Tonton video pengantar di atas dulu ya!</p>
+                <div class="p-4 md:p-8 max-w-4xl mx-auto pb-24">
+                    <!-- NEGOSIASI: PERTEMUAN 1 -->
+                    <div id="negosiasi-m1" class="meeting-content fade-in">
+                        <div class="mb-8">
+                            <span class="text-indigo-400 font-bold text-xs tracking-wider uppercase mb-2 block">Pengenalan Materi</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Apa Itu Negosiasi? 🤔</h3>
                         </div>
 
-                        <div class="grid md:grid-cols-5 gap-6">
-                            <div class="md:col-span-3 glass-card p-6 rounded-2xl border-l-4 border-l-indigo-500">
-                                <h4 class="text-white font-bold text-lg mb-3">Definisi Singkat</h4>
-                                <p class="text-slate-300 leading-relaxed italic mb-4">
-                                    "Bayangkan kamu mau beli sepatu limited edition tapi harganya kemahalan. Terus kamu ngomong sama penjualnya biar dapet diskon. Nah, itu namanya negosiasi!"
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('neg-p1-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('neg-p1-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                            <button onclick="switchTab('neg-p1-kuis', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Kuis</button>
+                        </div>
+
+                        <!-- Materi -->
+                        <div id="neg-p1-materi" class="content-section fade-in">
+                            <div class="glass-card p-6 rounded-2xl mb-6">
+                                <div class="aspect-video rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl relative">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/fW99pBLtNSo" title="Video Negosiasi" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <p class="text-center text-xs text-slate-500 mt-3 font-medium">Tonton video pengantar di atas dulu ya!</p>
+                            </div>
+                            <div class="grid md:grid-cols-5 gap-6">
+                                <div class="md:col-span-3 glass-card p-6 rounded-2xl border-l-4 border-l-indigo-500">
+                                    <h4 class="text-white font-bold text-lg mb-3">Definisi Singkat</h4>
+                                    <p class="text-slate-300 leading-relaxed italic mb-4">
+                                        "Bayangkan kamu mau beli sepatu limited edition tapi harganya kemahalan. Terus kamu ngomong sama penjualnya biar dapet diskon. Nah, itu namanya negosiasi!"
+                                    </p>
+                                    <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                                        <p class="text-xs text-slate-400"><strong>Secara teori:</strong> Interaksi sosial untuk mencapai kesepakatan bersama antara pihak-pihak yang punya kepentingan berbeda.</p>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2 glass-card p-6 rounded-2xl">
+                                    <h4 class="text-white font-bold text-lg mb-4">Karakteristik</h4>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-3 text-sm text-slate-300"><i class="fa-solid fa-check text-indigo-500 mt-1"></i><span>Terdapat permintaan dan penawaran</span></li>
+                                        <li class="flex items-start gap-3 text-sm text-slate-300"><i class="fa-solid fa-check text-indigo-500 mt-1"></i><span>Ada dua pihak/lebih (pembeli & penjual)</span></li>
+                                        <li class="flex items-start gap-3 text-sm text-slate-300"><i class="fa-solid fa-check text-indigo-500 mt-1"></i><span>Tawar-menawar untuk Win-Win Solution</span></li>
+                                        <li class="flex items-start gap-3 text-sm text-slate-300"><i class="fa-solid fa-check text-indigo-500 mt-1"></i><span>Bahasa persuasif (membujuk)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tugas -->
+                        <div id="neg-p1-tugas" class="content-section hidden fade-in space-y-4">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-indigo-500/50 transition group">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Tugas Individu</h4>
+                                    <span class="bg-indigo-900/50 text-indigo-300 text-[10px] font-bold px-2 py-1 rounded border border-indigo-500/30">MANDIRI</span>
+                                </div>
+                                <p class="text-slate-400 text-sm mb-4">Cari satu contoh percakapan negosiasi di YouTube atau TikTok (jual beli/tawar menawar). Tulis ulang dialog intinya di buku catatanmu.</p>
+                            </div>
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-pink-500/50 transition group">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-pink-400 transition">Tugas Kelompok</h4>
+                                    <span class="bg-pink-900/50 text-pink-300 text-[10px] font-bold px-2 py-1 rounded border border-pink-500/30">COLLAB</span>
+                                </div>
+                                <p class="text-slate-400 text-sm">Berpasangan (2 orang), coba buat skrip dialog singkat tentang negosiasi jam pulang main sama orang tua.</p>
+                            </div>
+                        </div>
+
+                        <!-- Kuis -->
+                        <div id="neg-p1-kuis" class="content-section hidden fade-in">
+                            <div class="glass-card p-8 rounded-2xl border-t-4 border-t-indigo-500">
+                                <div class="flex items-center justify-between mb-8">
+                                    <h3 class="text-xl font-bold text-white">Quiz Pertemuan 1</h3>
+                                </div>
+                                <form id="quizFormP1" class="space-y-8">
+                                    <!-- Soal 1 -->
+                                    <div class="space-y-3">
+                                        <p class="font-semibold text-slate-200">1. Apa tujuan utama dari negosiasi?</p>
+                                        <div class="space-y-2 text-sm">
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="a" class="mr-3"> a. Mengalahkan lawan</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="b" class="mr-3"> b. Mencari kesepakatan bersama</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="c" class="mr-3"> c. Memaksa kehendak</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="d" class="mr-3"> d. Menghindari masalah</label>
+                                        </div>
+                                    </div>
+                                    <!-- Soal 2 -->
+                                    <div class="space-y-3">
+                                        <p class="font-semibold text-slate-200 leading-relaxed">2. Dalam sengketa warisan, Kakak ingin menjual rumah untuk modal usaha, Adik ingin mempertahankannya untuk kenangan. Solusi integratif (Win-Win) yang paling tepat adalah...</p>
+                                        <div class="space-y-2 text-sm">
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="a" class="mr-3"> a. Menjual rumah dan membagi uangnya 50:50.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="b" class="mr-3"> b. Rumah tidak dijual dan Kakak mencari pinjaman lain.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="c" class="mr-3"> c. Rumah dijadikan kos-kosan, Kakak mengelola hasilnya untuk modal, kepemilikan tetap bersama.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="d" class="mr-3"> d. Melakukan undian siapa yang berhak atas rumah.</label>
+                                        </div>
+                                    </div>
+                                    <!-- Soal 3 -->
+                                    <div class="space-y-3">
+                                        <p class="font-semibold text-slate-200">3. Jika lawan negosiasi Anda menggunakan nada tinggi dan ancaman (deadlock), respons terbaik secara strategi negosiasi adalah...</p>
+                                        <div class="space-y-2 text-sm">
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="a" class="mr-3"> a. Membalas dengan nada tinggi agar tidak terlihat lemah.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="b" class="mr-3"> b. Langsung menyetujui tuntutan agar aman.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="c" class="mr-3"> c. Tetap tenang (Cooling down), menunda sesi, atau kembali ke objektivitas masalah.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="d" class="mr-3"> d. Meninggalkan ruangan tanpa kata-kata.</label>
+                                        </div>
+                                    </div>
+                                    <!-- Soal 4 -->
+                                    <div class="space-y-3">
+                                        <p class="font-semibold text-slate-200">4. Manakah indikator keberhasilan negosiasi yang paling valid dalam jangka panjang?</p>
+                                        <div class="space-y-2 text-sm">
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="a" class="mr-3"> a. Anda mendapatkan harga termurah yang tidak masuk akal.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="b" class="mr-3"> b. Lawan negosiasi merasa tertipu namun sepakat.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="c" class="mr-3"> c. Kesepakatan tercapai dan hubungan kedua pihak tetap terjaga baik.</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="d" class="mr-3"> d. Kesepakatan tercapai dengan cepat tanpa diskusi.</label>
+                                        </div>
+                                    </div>
+                                    <!-- Soal 5 -->
+                                    <div class="space-y-3">
+                                        <p class="font-semibold text-slate-200">5. Struktur pertama dalam teks negosiasi adalah...</p>
+                                        <div class="space-y-2 text-sm">
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="a" class="mr-3"> a. Penawaran</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="b" class="mr-3"> b. Persetujuan</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="c" class="mr-3"> c. Penutup</label>
+                                            <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="d" class="mr-3"> d. Orientasi</label>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="checkScore()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-indigo-900/50">Submit Jawaban 🚀</button>
+                                </form>
+                                <div id="resultBox" class="hidden mt-6 p-6 rounded-xl bg-slate-800/80 border border-slate-700 text-center animate-bounce">
+                                    <p class="text-5xl font-extrabold mb-2 text-white" id="resultScore">0</p>
+                                    <p id="resultText" class="text-slate-300 font-medium">Hasil kuis anda</p>
+                                    <button onclick="location.reload()" class="mt-4 text-indigo-400 text-sm hover:text-white font-bold underline decoration-2 underline-offset-4">Ulangi Kuis</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEGOSIASI: PERTEMUAN 2 -->
+                    <div id="negosiasi-m2" class="meeting-content hidden fade-in">
+                        <div class="mb-8">
+                            <span class="text-pink-400 font-bold text-xs tracking-wider uppercase mb-2 block">Analisis Struktur</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Bedah Struktur Kuy! 🏗️</h3>
+                        </div>
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('neg-p2-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('neg-p2-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+                        
+                        <div id="neg-p2-materi" class="content-section fade-in">
+                            <div class="glass-card p-8 rounded-2xl mb-8">
+                                <h4 class="text-xl font-bold text-white mb-2">Struktur Teks Negosiasi</h4>
+                                <p class="text-slate-400 mb-8">Biar negosiasi rapi, ada urutannya nih, bestie. Gak bisa langsung "Minta diskon dong!".</p>
+                                <div class="relative space-y-8 pl-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-700">
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-indigo-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-indigo-900/50">1</span>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-indigo-500 transition">
+                                            <h5 class="text-indigo-400 font-bold mb-1">Orientasi</h5>
+                                            <p class="text-slate-300 text-sm mb-2">Pembukaan atau salam pembuka untuk memulai interaksi.</p>
+                                            <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Permisi, Kak..."</div>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-sky-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-sky-900/50">2</span>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-sky-500 transition">
+                                            <h5 class="text-sky-400 font-bold mb-1">Pengajuan</h5>
+                                            <p class="text-slate-300 text-sm mb-2">Pihak pertama menyampaikan maksud atau minta sesuatu.</p>
+                                            <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Sepatu ini boleh kurang gak?"</div>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-purple-900/50">3</span>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-purple-500 transition">
+                                            <h5 class="text-purple-400 font-bold mb-1">Penawaran</h5>
+                                            <p class="text-slate-300 text-sm mb-2">Pihak kedua menolak halus atau kasih harga lain (Tawar menawar).</p>
+                                            <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Wah belum bisa kak, segini aja deh..."</div>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-emerald-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-emerald-900/50">4</span>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-emerald-500 transition">
+                                            <h5 class="text-emerald-400 font-bold mb-1">Persetujuan</h5>
+                                            <p class="text-slate-300 text-sm mb-2">Titik temu. Deal or No Deal.</p>
+                                            <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Oke deh kak, saya ambil!"</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="neg-p2-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-8 rounded-2xl border border-slate-700 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-pink-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl shadow-lg">WAJIB KELOMPOK</div>
+                                <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span class="w-8 h-8 bg-pink-500/20 rounded-lg flex items-center justify-center text-pink-400"><i class="fa-solid fa-users"></i></span>
+                                    Lanjutan Project
+                                </h4>
+                                <p class="text-slate-300 leading-relaxed mb-6">
+                                    Lanjutkan skrip yang sudah dibuat di pertemuan 1. Sekarang, revisi dan pastikan semua struktur <strong>(Orientasi - Pengajuan - Penawaran - Persetujuan)</strong> ada di dalamnya!
                                 </p>
-                                <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                                    <p class="text-xs text-slate-400"><strong>Secara teori:</strong> Interaksi sosial untuk mencapai kesepakatan bersama antara pihak-pihak yang punya kepentingan berbeda.</p>
+                                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+                                    <p class="text-xs text-slate-500 font-mono">Tips: Beri tanda kurung (Orientasi) di samping dialog untuk memudahkan pengecekan.</p>
                                 </div>
-                            </div>
-                            
-                            <div class="md:col-span-2 glass-card p-6 rounded-2xl">
-                                <h4 class="text-white font-bold text-lg mb-4">Karakteristik</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start gap-3 text-sm text-slate-300">
-                                        <i class="fa-solid fa-check text-indigo-500 mt-1"></i>
-                                        <span>Terdapat permintaan dan penawaran</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-slate-300">
-                                        <i class="fa-solid fa-check text-indigo-500 mt-1"></i>
-                                        <span>Ada dua pihak/lebih (pembeli & penjual)</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-slate-300">
-                                        <i class="fa-solid fa-check text-indigo-500 mt-1"></i>
-                                        <span>Tawar-menawar untuk Win-Win Solution</span>
-                                    </li>
-                                    <li class="flex items-start gap-3 text-sm text-slate-300">
-                                        <i class="fa-solid fa-check text-indigo-500 mt-1"></i>
-                                        <span>Bahasa persuasif (membujuk)</span>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- P1: TUGAS -->
-                    <div id="p1-tugas" class="content-section hidden fade-in space-y-4">
-                        <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-indigo-500/50 transition group">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Tugas Individu</h4>
-                                <span class="bg-indigo-900/50 text-indigo-300 text-[10px] font-bold px-2 py-1 rounded border border-indigo-500/30">MANDIRI</span>
-                            </div>
-                            <p class="text-slate-400 text-sm mb-4">Cari satu contoh percakapan negosiasi di YouTube atau TikTok (jual beli/tawar menawar). Tulis ulang dialog intinya di buku catatanmu.</p>
-                            <div class="flex items-center gap-2 text-xs text-slate-500">
-                                <i class="fa-solid fa-circle-info"></i> Deadline: Pertemuan selanjutnya
+                    <!-- NEGOSIASI: PERTEMUAN 3 -->
+                    <div id="negosiasi-m3" class="meeting-content hidden fade-in">
+                        <div class="mb-8">
+                            <span class="text-teal-400 font-bold text-xs tracking-wider uppercase mb-2 block">Kaidah Kebahasaan</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Bahasa Dalam Negosiasi 🗣️</h3>
+                        </div>
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('neg-p3-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('neg-p3-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+
+                        <div id="neg-p3-materi" class="content-section fade-in">
+                            <div class="grid gap-6">
+                                <div class="glass-card p-6 rounded-2xl border-l-4 border-l-teal-500">
+                                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-user-tag text-teal-400"></i> 1. Pronomina (Kata Ganti)
+                                    </h4>
+                                    <p class="text-slate-300 mb-4 text-sm leading-relaxed">Pronomina adalah kata ganti orang. Sering banget dipakai dalam teks negosiasi bentuk dialog. Kaya gini contohnya:</p>
+                                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 text-sm">
+                                        <div class="space-y-2">
+                                            <p><span class="text-teal-400 font-bold">Penjual:</span> "Selamat pagi. Mau cari pakaian jenis apa, <span class="text-white font-bold underline decoration-teal-500">Bu</span>?"</p>
+                                            <p><span class="text-purple-400 font-bold">Pembeli:</span> "<span class="text-white font-bold underline decoration-purple-500">Saya</span> mencari pakaian seragam untuk anak sekolah. Apakah ada?"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="glass-card p-6 rounded-2xl">
+                                        <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="fa-solid fa-quote-right text-indigo-400"></i> 2. Kalimat Langsung</h4>
+                                        <p class="text-slate-300 text-sm">Kalo di teks negosiasi hampir semua pakai kalimat langsung. Biasanya ditandai dengan penggunaan <strong>tanda kutip ("...")</strong>.</p>
+                                    </div>
+                                    <div class="glass-card p-6 rounded-2xl">
+                                        <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i> 3. Kalimat Persuasif</h4>
+                                        <p class="text-slate-300 text-sm mb-3">Kalimat yang membujuk atau memengaruhi lawan bicara.</p>
+                                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/50 text-xs italic text-slate-400">Penjual: "Sayang banget lho kak kalau dilewatkan, barang tinggal satu."</div>
+                                    </div>
+                                </div>
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-question text-sky-400"></i> 4. Jenis Kalimat</h4>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <span class="text-sky-400 font-bold text-sm block mb-1">Kalimat Deklaratif</span>
+                                            <p class="text-slate-400 text-xs">Kalimat pernyataan yang menyatakan suatu informasi atau berita.</p>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <span class="text-sky-400 font-bold text-sm block mb-1">Kalimat Interogatif</span>
+                                            <p class="text-slate-400 text-xs">Kalimat yang menanyakan sesuatu (Pertanyaan).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="glass-card p-6 rounded-2xl border-r-4 border-r-emerald-500">
+                                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="fa-solid fa-comments text-emerald-400"></i> 5. Pasangan Tuturan</h4>
+                                    <p class="text-slate-300 text-sm mb-4">Aksi dan reaksi dalam percakapan.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/30">Tanya ➔ Jawab</span>
+                                        <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/30">Mengucap Salam ➔ Menjawab Salam</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-pink-500/50 transition group">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-pink-400 transition">Tugas Kelompok</h4>
-                                <span class="bg-pink-900/50 text-pink-300 text-[10px] font-bold px-2 py-1 rounded border border-pink-500/30">COLLAB</span>
+                        <div id="neg-p3-tugas" class="content-section hidden fade-in space-y-4">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-indigo-500/50 transition group">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Tugas Individu</h4>
+                                    <span class="bg-indigo-900/50 text-indigo-300 text-[10px] font-bold px-2 py-1 rounded border border-indigo-500/30">MANDIRI</span>
+                                </div>
+                                <p class="text-slate-400 text-sm mb-4">Buat 5 contoh kalimat persuasif untuk meyakinkan temanmu ikut ekskul pilihanmu.</p>
                             </div>
-                            <p class="text-slate-400 text-sm">Berpasangan (2 orang), coba buat skrip dialog singkat tentang negosiasi jam pulang main sama orang tua.</p>
-                        </div>
-                    </div>
-
-                    <!-- P1: KUIS -->
-                    <div id="p1-kuis" class="content-section hidden fade-in">
-                        <div class="glass-card p-8 rounded-2xl border-t-4 border-t-indigo-500">
-                            <div class="flex items-center justify-between mb-8">
-                                <h3 class="text-xl font-bold text-white">Quiz Pertemuan 1</h3>
-                                <div class="text-xs font-mono bg-slate-800 px-2 py-1 rounded text-slate-400">PG Only</div>
-                            </div>
-
-                            <form id="quizFormP1" class="space-y-8">
-                                <!-- Soal 1 -->
-                                <div class="space-y-3">
-                                    <p class="font-semibold text-slate-200">1. Apa tujuan utama dari negosiasi?</p>
-                                    <div class="space-y-2 text-sm">
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="a" class="mr-3"> a. Mengalahkan lawan</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="b" class="mr-3"> b. Mencari kesepakatan bersama</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="c" class="mr-3"> c. Memaksa kehendak</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q1" value="d" class="mr-3"> d. Menghindari masalah</label>
-                                    </div>
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-pink-500/50 transition group">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-pink-400 transition">Tugas Kelompok</h4>
+                                    <span class="bg-pink-900/50 text-pink-300 text-[10px] font-bold px-2 py-1 rounded border border-pink-500/30">COLLAB</span>
                                 </div>
-
-                                <!-- Soal 2 -->
-                                <div class="space-y-3">
-                                    <p class="font-semibold text-slate-200 leading-relaxed">2. Dalam sengketa warisan, Kakak ingin menjual rumah untuk modal usaha, Adik ingin mempertahankannya untuk kenangan. Solusi integratif (Win-Win) yang paling tepat adalah...</p>
-                                    <div class="space-y-2 text-sm">
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="a" class="mr-3"> a. Menjual rumah dan membagi uangnya 50:50.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="b" class="mr-3"> b. Rumah tidak dijual dan Kakak mencari pinjaman lain.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="c" class="mr-3"> c. Rumah dijadikan kos-kosan, Kakak mengelola hasilnya untuk modal, kepemilikan tetap bersama.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q2" value="d" class="mr-3"> d. Melakukan undian siapa yang berhak atas rumah.</label>
-                                    </div>
-                                </div>
-
-                                <!-- Soal 3 -->
-                                <div class="space-y-3">
-                                    <p class="font-semibold text-slate-200">3. Jika lawan negosiasi Anda menggunakan nada tinggi dan ancaman (deadlock), respons terbaik secara strategi negosiasi adalah...</p>
-                                    <div class="space-y-2 text-sm">
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="a" class="mr-3"> a. Membalas dengan nada tinggi agar tidak terlihat lemah.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="b" class="mr-3"> b. Langsung menyetujui tuntutan agar aman.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="c" class="mr-3"> c. Tetap tenang (Cooling down), menunda sesi, atau kembali ke objektivitas masalah.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q3" value="d" class="mr-3"> d. Meninggalkan ruangan tanpa kata-kata.</label>
-                                    </div>
-                                </div>
-
-                                <!-- Soal 4 -->
-                                <div class="space-y-3">
-                                    <p class="font-semibold text-slate-200">4. Manakah indikator keberhasilan negosiasi yang paling valid dalam jangka panjang?</p>
-                                    <div class="space-y-2 text-sm">
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="a" class="mr-3"> a. Anda mendapatkan harga termurah yang tidak masuk akal.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="b" class="mr-3"> b. Lawan negosiasi merasa tertipu namun sepakat.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="c" class="mr-3"> c. Kesepakatan tercapai dan hubungan kedua pihak tetap terjaga baik.</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q4" value="d" class="mr-3"> d. Kesepakatan tercapai dengan cepat tanpa diskusi.</label>
-                                    </div>
-                                </div>
-
-                                <!-- Soal 5 -->
-                                <div class="space-y-3">
-                                    <p class="font-semibold text-slate-200">5. Struktur pertama dalam teks negosiasi adalah...</p>
-                                    <div class="space-y-2 text-sm">
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="a" class="mr-3"> a. Penawaran</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="b" class="mr-3"> b. Persetujuan</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="c" class="mr-3"> c. Penutup</label>
-                                        <label class="flex items-center p-3 rounded-xl hover:bg-slate-800/80 cursor-pointer border border-transparent hover:border-slate-600 transition"><input type="radio" name="q5" value="d" class="mr-3"> d. Orientasi</label>
-                                    </div>
-                                </div>
-
-                                <button type="button" onclick="checkScore()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-indigo-900/50">Submit Jawaban 🚀</button>
-                            </form>
-                            
-                            <div id="resultBox" class="hidden mt-6 p-6 rounded-xl bg-slate-800/80 border border-slate-700 text-center animate-bounce">
-                                <p class="text-5xl font-extrabold mb-2 text-white" id="resultScore">0</p>
-                                <p id="resultText" class="text-slate-300 font-medium">Hasil kuis anda</p>
-                                <button onclick="location.reload()" class="mt-4 text-indigo-400 text-sm hover:text-white font-bold underline decoration-2 underline-offset-4">Ulangi Kuis</button>
+                                <p class="text-slate-400 text-sm">Presentasikan hasil analisis kebahasaan dari teks teman sebangku.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div> <!-- End Topic: Negosiasi -->
 
-                <!-- ================= PERTEMUAN 2 ================= -->
-                <div id="meeting-2" class="meeting-content hidden fade-in">
-                    <!-- Title Header -->
-                    <div class="mb-8">
-                        <span class="text-pink-400 font-bold text-xs tracking-wider uppercase mb-2 block">Analisis Struktur</span>
-                        <h3 class="text-3xl md:text-4xl font-extrabold text-white">Bedah Struktur Kuy! 🏗️</h3>
+            <!-- ======================= TOPIC: TEKS BIOGRAFI ======================= -->
+            <div id="topic-biografi" class="topic-content hidden">
+                <!-- Top Navigation (Pertemuan) -->
+                <header class="glass-header px-6 py-4 sticky top-0 z-20">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-5xl mx-auto w-full">
+                        <div>
+                            <h2 class="text-lg font-bold text-white">👤 Teks Biografi</h2>
+                            <p class="text-xs text-slate-500 hidden md:block">Kelas 10 • Fase E</p>
+                        </div>
+                        
+                        <!-- Pills Navigation -->
+                        <div class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-700/50 w-full md:w-auto overflow-x-auto no-scrollbar gap-1">
+                            <button onclick="switchMeeting('biografi', 1)" id="pill-biografi-m1" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-lg transition-all whitespace-nowrap border border-indigo-500">
+                                Pertemuan 1
+                            </button>
+                            <button onclick="switchMeeting('biografi', 2)" id="pill-biografi-m2" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 2
+                            </button>
+                            <button onclick="switchMeeting('biografi', 3)" id="pill-biografi-m3" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 3
+                            </button>
+                        </div>
                     </div>
+                </header>
 
-                    <!-- Tabs P2 (Renamed Uniformly) -->
-                    <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
-                        <button onclick="switchTab('p2-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
-                        <button onclick="switchTab('p2-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
-                    </div>
+                <div class="p-4 md:p-8 max-w-4xl mx-auto pb-24">
+                    <!-- BIOGRAFI: PERTEMUAN 1 -->
+                    <div id="biografi-m1" class="meeting-content fade-in">
+                        <div class="mb-8">
+                            <span class="text-indigo-400 font-bold text-xs tracking-wider uppercase mb-2 block">Pengenalan Materi</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Mengenal Lebih Banyak Tentang Biografi! 📖</h3>
+                        </div>
 
-                    <!-- P2: MATERI STRUKTUR -->
-                    <div id="p2-materi" class="content-section fade-in">
-                        <div class="glass-card p-8 rounded-2xl mb-8">
-                            <h4 class="text-xl font-bold text-white mb-2">Struktur Teks Negosiasi</h4>
-                            <p class="text-slate-400 mb-8">Biar negosiasi rapi, ada urutannya nih, bestie. Gak bisa langsung "Minta diskon dong!".</p>
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('bio-p1-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('bio-p1-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
 
-                            <!-- Timeline Design for Structure -->
-                            <div class="relative space-y-8 pl-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-700">
+                        <div id="bio-p1-materi" class="content-section fade-in">
+                            <div class="glass-card p-8 rounded-2xl mb-6">
+                                <p class="text-slate-300 leading-relaxed mb-6">
+                                    Teks Biografi itu bukan sekadar "biodata" ya, tapi sebuah kisah hidup yang punya nyawa. Kita belajar dari kegagalan dan kesuksesan orang lain agar kita tidak perlu "menabrak tembok" yang sama. Yuk, kita bedah materinya dengan gaya yang santai tapi tetap padat.
+                                </p>
                                 
-                                <!-- Step 1 -->
-                                <div class="relative">
-                                    <span class="absolute -left-[41px] bg-indigo-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-indigo-900/50">1</span>
-                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-indigo-500 transition">
-                                        <h5 class="text-indigo-400 font-bold mb-1">Orientasi</h5>
-                                        <p class="text-slate-300 text-sm mb-2">Pembukaan atau salam pembuka untuk memulai interaksi.</p>
-                                        <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Permisi, Kak..."</div>
-                                    </div>
-                                </div>
-
-                                <!-- Step 2 -->
-                                <div class="relative">
-                                    <span class="absolute -left-[41px] bg-sky-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-sky-900/50">2</span>
-                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-sky-500 transition">
-                                        <h5 class="text-sky-400 font-bold mb-1">Pengajuan</h5>
-                                        <p class="text-slate-300 text-sm mb-2">Pihak pertama menyampaikan maksud atau minta sesuatu.</p>
-                                        <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Sepatu ini boleh kurang gak?"</div>
-                                    </div>
-                                </div>
-
-                                <!-- Step 3 -->
-                                <div class="relative">
-                                    <span class="absolute -left-[41px] bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-purple-900/50">3</span>
-                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-purple-500 transition">
-                                        <h5 class="text-purple-400 font-bold mb-1">Penawaran</h5>
-                                        <p class="text-slate-300 text-sm mb-2">Pihak kedua menolak halus atau kasih harga lain (Tawar menawar).</p>
-                                        <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Wah belum bisa kak, segini aja deh..."</div>
-                                    </div>
-                                </div>
-
-                                <!-- Step 4 -->
-                                <div class="relative">
-                                    <span class="absolute -left-[41px] bg-emerald-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-emerald-900/50">4</span>
-                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-emerald-500 transition">
-                                        <h5 class="text-emerald-400 font-bold mb-1">Persetujuan</h5>
-                                        <p class="text-slate-300 text-sm mb-2">Titik temu. Deal or No Deal.</p>
-                                        <div class="bg-slate-900 p-2 rounded text-xs text-slate-400 italic">Example: "Oke deh kak, saya ambil!"</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- P2: TUGAS -->
-                    <div id="p2-tugas" class="content-section hidden fade-in">
-                        <div class="glass-card p-8 rounded-2xl border border-slate-700 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-pink-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl shadow-lg">WAJIB KELOMPOK</div>
-                            <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <span class="w-8 h-8 bg-pink-500/20 rounded-lg flex items-center justify-center text-pink-400"><i class="fa-solid fa-users"></i></span>
-                                Lanjutan Project
-                            </h4>
-                            <p class="text-slate-300 leading-relaxed mb-6">
-                                Lanjutkan skrip yang sudah dibuat di pertemuan 1. Sekarang, revisi dan pastikan semua struktur <strong>(Orientasi - Pengajuan - Penawaran - Persetujuan)</strong> ada di dalamnya!
-                            </p>
-                            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
-                                <p class="text-xs text-slate-500 font-mono">Tips: Beri tanda kurung (Orientasi) di samping dialog untuk memudahkan pengecekan.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================= PERTEMUAN 3 ================= -->
-                <div id="meeting-3" class="meeting-content hidden fade-in">
-                    <!-- Title Header -->
-                    <div class="mb-8">
-                        <span class="text-teal-400 font-bold text-xs tracking-wider uppercase mb-2 block">Kaidah Kebahasaan</span>
-                        <h3 class="text-3xl md:text-4xl font-extrabold text-white">Bahasa Dalam Negosiasi 🗣️</h3>
-                    </div>
-
-                    <!-- Tabs P3 -->
-                    <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
-                        <button onclick="switchTab('p3-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
-                        <button onclick="switchTab('p3-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
-                    </div>
-
-                    <!-- P3: MATERI -->
-                    <div id="p3-materi" class="content-section fade-in">
-                        <div class="grid gap-6">
-                            
-                            <!-- Pronomina -->
-                            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-teal-500">
-                                <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-user-tag text-teal-400"></i> 1. Pronomina (Kata Ganti)
-                                </h4>
-                                <p class="text-slate-300 mb-4 text-sm leading-relaxed">
-                                    Pronomina adalah kata ganti orang. Sering banget dipakai dalam teks negosiasi bentuk dialog. Kaya gini contohnya:
-                                </p>
-                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 text-sm">
-                                    <div class="space-y-2">
-                                        <p><span class="text-teal-400 font-bold">Penjual:</span> "Selamat pagi. Mau cari pakaian jenis apa, <span class="text-white font-bold underline decoration-teal-500">Bu</span>?"</p>
-                                        <p><span class="text-purple-400 font-bold">Pembeli:</span> "<span class="text-white font-bold underline decoration-purple-500">Saya</span> mencari pakaian seragam untuk anak sekolah. Apakah ada?"</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <!-- Kalimat Langsung -->
-                                <div class="glass-card p-6 rounded-2xl">
-                                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-quote-right text-indigo-400"></i> 2. Kalimat Langsung
-                                    </h4>
-                                    <p class="text-slate-300 text-sm">
-                                        Kalo di teks negosiasi hampir semua pakai kalimat langsung. Biasanya ditandai dengan penggunaan <strong>tanda kutip ("...")</strong>.
+                                <div class="bg-indigo-900/30 border-l-4 border-indigo-500 p-5 rounded-r-xl mb-6">
+                                    <h4 class="text-indigo-300 font-bold mb-2">Pengertian Teks Biografi</h4>
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                        Sederhananya, Teks Biografi adalah teks yang mengisahkan riwayat hidup seseorang yang ditulis oleh orang lain. Teks ini biasanya mengulas tokoh-tokoh yang punya pengaruh, inspiratif, atau punya prestasi luar biasa agar pembaca bisa memetik pelajaran hidup (value) dari sana.
                                     </p>
-                                </div>
-
-                                <!-- Persuasif -->
-                                <div class="glass-card p-6 rounded-2xl">
-                                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                        <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i> 3. Kalimat Persuasif
-                                    </h4>
-                                    <p class="text-slate-300 text-sm mb-3">
-                                        Kalimat yang membujuk atau memengaruhi lawan bicara.
-                                    </p>
-                                    <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/50 text-xs italic text-slate-400">
-                                        Penjual: "Sayang banget lho kak kalau dilewatkan, barang tinggal satu."
+                                    <div class="bg-indigo-950/50 p-3 rounded-lg border border-indigo-500/30 text-xs text-indigo-200">
+                                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> <strong>Catatan Penting:</strong> Kalau kamu menulis riwayat hidupmu sendiri, itu namanya <strong>Autobiografi</strong>. Bedanya cuma di siapa yang memegang pena!
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Deklaratif & Interogatif -->
-                            <div class="glass-card p-6 rounded-2xl">
-                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-question text-sky-400"></i> 4. Jenis Kalimat
-                                </h4>
+                                <h4 class="text-white font-bold text-lg mb-4">Karakteristik (Ciri-Ciri)</h4>
+                                <p class="text-slate-400 text-sm mb-4">Agar sebuah teks bisa disebut biografi yang "oke", ia harus punya ciri berikut:</p>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                                        <span class="text-sky-400 font-bold text-sm block mb-1">Kalimat Deklaratif</span>
-                                        <p class="text-slate-400 text-xs">Kalimat pernyataan yang menyatakan suatu informasi atau berita.</p>
+                                        <h5 class="text-indigo-400 font-bold text-sm mb-1"><i class="fa-solid fa-check-circle mr-2"></i>Faktual</h5>
+                                        <p class="text-slate-400 text-xs">Isinya harus berdasarkan fakta, bukan imajinasi atau karangan fiksi.</p>
                                     </div>
                                     <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                                        <span class="text-sky-400 font-bold text-sm block mb-1">Kalimat Interogatif</span>
-                                        <p class="text-slate-400 text-xs">Kalimat yang menanyakan sesuatu (Pertanyaan).</p>
+                                        <h5 class="text-indigo-400 font-bold text-sm mb-1"><i class="fa-solid fa-list-ol mr-2"></i>Alur Cerita Jelas</h5>
+                                        <p class="text-slate-400 text-xs">Biasanya berurutan dari masa kecil hingga tua/sukses.</p>
+                                    </div>
+                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                        <h5 class="text-indigo-400 font-bold text-sm mb-1"><i class="fa-solid fa-star mr-2"></i>Punya Pesan Moral</h5>
+                                        <p class="text-slate-400 text-xs">Menampilkan karakter unggul si tokoh yang bisa diteladani.</p>
+                                    </div>
+                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                        <h5 class="text-indigo-400 font-bold text-sm mb-1"><i class="fa-solid fa-book-open mr-2"></i>Gaya Bahasa Naratif</h5>
+                                        <p class="text-slate-400 text-xs">Disajikan seperti bercerita agar tidak membosankan.</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Pasangan Tuturan -->
-                            <div class="glass-card p-6 rounded-2xl border-r-4 border-r-emerald-500">
-                                <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                                    <i class="fa-solid fa-comments text-emerald-400"></i> 5. Pasangan Tuturan
-                                </h4>
-                                <p class="text-slate-300 text-sm mb-4">Aksi dan reaksi dalam percakapan.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/30">Tanya ➔ Jawab</span>
-                                    <span class="px-3 py-1 bg-emerald-900/30 text-emerald-400 rounded-full text-xs font-bold border border-emerald-500/30">Mengucap Salam ➔ Menjawab Salam</span>
-                                </div>
+                        <div id="bio-p1-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 px-4 py-1 bg-indigo-600 text-white text-[10px] font-black rounded-bl-xl">INDIVIDU</div>
+                                <h4 class="text-lg font-bold text-white mb-4"><i class="fa-solid fa-sitemap text-indigo-400 mr-2"></i> Peta Konsep Biografi</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                    Buatlah peta konsep materi Teks Biografi: pengertian, karakteristik, struktur, kaidah kebahasaan! Buat di buku catatan dengan rapi dan kreatif!
+                                </p>
                             </div>
-
                         </div>
                     </div>
 
-                    <!-- P3: TUGAS -->
-                    <div id="p3-tugas" class="content-section hidden fade-in space-y-4">
-                        <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-indigo-500/50 transition group">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Tugas Individu</h4>
-                                <span class="bg-indigo-900/50 text-indigo-300 text-[10px] font-bold px-2 py-1 rounded border border-indigo-500/30">MANDIRI</span>
-                            </div>
-                            <p class="text-slate-400 text-sm mb-4">Buat 5 contoh kalimat persuasif untuk meyakinkan temanmu ikut ekskul pilihanmu.</p>
+                    <!-- BIOGRAFI: PERTEMUAN 2 -->
+                    <div id="biografi-m2" class="meeting-content hidden fade-in">
+                        <div class="mb-8">
+                            <span class="text-pink-400 font-bold text-xs tracking-wider uppercase mb-2 block">Analisis Struktur</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Membangun Fondasi Biografi 🏛️</h3>
                         </div>
 
-                        <div class="glass-card p-6 rounded-2xl border border-slate-700 hover:border-pink-500/50 transition group">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-lg font-bold text-white group-hover:text-pink-400 transition">Tugas Kelompok</h4>
-                                <span class="bg-pink-900/50 text-pink-300 text-[10px] font-bold px-2 py-1 rounded border border-pink-500/30">COLLAB</span>
-                            </div>
-                            <p class="text-slate-400 text-sm">Presentasikan hasil analisis kebahasaan dari teks teman sebangku.</p>
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('bio-p2-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('bio-p2-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
                         </div>
+
+                        <div id="bio-p2-materi" class="content-section fade-in">
+                            <div class="glass-card p-8 rounded-2xl mb-8">
+                                <p class="text-slate-300 mb-8">Bayangkan biografi itu seperti sebuah bangunan. Struktur ini adalah fondasi dan dindingnya:</p>
+                                
+                                <div class="relative space-y-8 pl-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-700">
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-indigo-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-indigo-900/50">1</span>
+                                        <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-indigo-500 transition">
+                                            <h5 class="text-indigo-400 font-bold mb-2">Orientasi (Pengenalan)</h5>
+                                            <p class="text-slate-300 text-sm">Bagian awal yang berisi pengenalan tokoh secara umum (siapa, lahir di mana, latar belakang keluarga).</p>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-pink-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-pink-900/50">2</span>
+                                        <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-pink-500 transition">
+                                            <h5 class="text-pink-400 font-bold mb-2">Peristiwa Penting & Masalah</h5>
+                                            <p class="text-slate-300 text-sm">Bagian inti. Di sini diceritakan perjalanan karier, hambatan yang dihadapi, hingga prestasi yang diraih. Inilah "drama" kehidupan yang sebenarnya.</p>
+                                        </div>
+                                    </div>
+                                    <div class="relative">
+                                        <span class="absolute -left-[41px] bg-emerald-600 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-emerald-900/50">3</span>
+                                        <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-emerald-500 transition">
+                                            <h5 class="text-emerald-400 font-bold mb-2">Reorientasi (Penutup)</h5>
+                                            <p class="text-slate-300 text-sm">Berisi pandangan penulis terhadap tokoh tersebut. Bagian ini bersifat opsional (boleh ada, boleh tidak).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="bio-p2-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700">
+                                <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><i class="fa-solid fa-video text-pink-400"></i> Analisis Peristiwa Tokoh</h4>
+                                
+                                <div class="aspect-video w-full rounded-xl overflow-hidden shadow-2xl mb-6">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ffI7FXDbYVk" title="Video Biografi" frameborder="0" allowfullscreen></iframe>
+                                </div>
+
+                                <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                                    <h5 class="text-white font-bold text-sm mb-2">Instruksi Tugas:</h5>
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                                        Tonton video di atas, lalu tulislah di buku catatan <strong>"Peristiwa Penting & Masalah"</strong> yang dialami oleh tokoh!
+                                    </p>
+                                    <p class="text-slate-300 text-sm leading-relaxed">
+                                        Tulis juga pendapatmu mengenai pahlawan tersebut beserta nilai kehidupan (value) yang dapat Kamu terapkan di kehidupan sehari-hari!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BIOGRAFI: PERTEMUAN 3 -->
+                    <div id="biografi-m3" class="meeting-content hidden fade-in">
+                        <div class="mb-8">
+                            <span class="text-teal-400 font-bold text-xs tracking-wider uppercase mb-2 block">Kaidah Kebahasaan</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Bumbu Rahasia Menulis 📝</h3>
+                        </div>
+
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('bio-p3-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('bio-p3-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+
+                        <div id="bio-p3-materi" class="content-section fade-in">
+                            <p class="text-slate-300 mb-6">Ini bagian yang paling seru karena menyangkut teknis menulisnya. Mari kita bedah satu per satu:</p>
+                            
+                            <div class="grid gap-6">
+                                <!-- A & B -->
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="glass-card p-6 rounded-2xl border-t-4 border-indigo-500">
+                                        <h4 class="text-white font-bold mb-3">A. Jenis Paragraf</h4>
+                                        <div class="space-y-3 text-sm text-slate-300">
+                                            <p><strong>Deduktif:</strong> Ide pokok ada di awal paragraf.<br>
+                                            <span class="text-slate-500 italic">(Contoh: "BJ Habibie adalah sosok yang sangat jenius. Sejak kecil ia sudah menunjukkan...")</span></p>
+                                            <p><strong>Induktif:</strong> Ide pokok ada di akhir paragraf sebagai kesimpulan.<br>
+                                            <span class="text-slate-500 italic">(Contoh: "... itulah sebabnya beliau dijuluki Bapak Teknologi Indonesia.")</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="glass-card p-6 rounded-2xl border-t-4 border-pink-500">
+                                        <h4 class="text-white font-bold mb-3">B. Pronomina Persona</h4>
+                                        <p class="text-slate-300 text-sm mb-2">Karena kita menceritakan orang lain, biografi didominasi oleh kata ganti orang ketiga.</p>
+                                        <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700 text-xs text-slate-400">
+                                            <strong>Tunggal:</strong> Ia, Dia, Beliau (paling sopan), -nya.<br>
+                                            <strong>Jamak:</strong> Mereka (jika menceritakan tokoh bersama kelompoknya).
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- C -->
+                                <div class="glass-card p-6 rounded-2xl border-l-4 border-emerald-500">
+                                    <h4 class="text-white font-bold mb-4">C. Kata Kerja (Verba)</h4>
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <h5 class="text-emerald-400 font-bold text-sm mb-1">Verba Material</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Tindakan fisik yang bisa dilihat.</p>
+                                            <span class="text-xs text-slate-500 italic">Contoh: menulis, membangun, meneliti</span>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <h5 class="text-emerald-400 font-bold text-sm mb-1">Verba Mental</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Berhubungan dengan perasaan atau pikiran.</p>
+                                            <span class="text-xs text-slate-500 italic">Contoh: memahami, mencintai, menyetujui, menginspirasi</span>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <h5 class="text-emerald-400 font-bold text-sm mb-1">Verba Pasif</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Fokus pada subjek yang menerima tindakan (awalan di-/ter-).</p>
+                                            <span class="text-xs text-slate-500 italic">Contoh: dilahirkan, dipilih, dikenal</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- D & E -->
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="glass-card p-6 rounded-2xl border-t-4 border-amber-500">
+                                        <h4 class="text-white font-bold mb-2">D. Kata Sifat (Adjektiva)</h4>
+                                        <p class="text-slate-300 text-sm mb-3">Digunakan untuk menggambarkan karakter unggul si tokoh agar pembaca merasa kenal dekat.</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-xs border border-amber-500/30">Gigih</span>
+                                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-xs border border-amber-500/30">Cerdas</span>
+                                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-xs border border-amber-500/30">Berani</span>
+                                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-xs border border-amber-500/30">Sederhana</span>
+                                            <span class="px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-xs border border-amber-500/30">Visioner</span>
+                                        </div>
+                                    </div>
+                                    <div class="glass-card p-6 rounded-2xl border-t-4 border-sky-500">
+                                        <h4 class="text-white font-bold mb-2">E. Konjungsi Temporal</h4>
+                                        <p class="text-slate-300 text-sm mb-3">Tanpa ini, ceritanya bakal lompat-lompat tak beraturan. Berfungsi sebagai jembatan antarperistiwa.</p>
+                                        <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700 text-xs text-slate-400 italic">
+                                            Contoh: Kemudian, setelah itu, sejak, pada tahun..., akhirnya.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="bio-p3-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-8 rounded-2xl border-2 border-indigo-500/50 bg-indigo-900/20 relative overflow-hidden text-center">
+                                <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-600/50 text-white text-2xl">
+                                    <i class="fa-solid fa-chart-pie"></i>
+                                </div>
+                                <h4 class="text-2xl font-bold text-white mb-2">Ulangan Harian! 🚨</h4>
+                                <p class="text-slate-300 leading-relaxed mb-6 max-w-lg mx-auto">
+                                    Buatlah infografik biografi pahlawan nasional, lalu presentasikan di depan kelas sebagai ulangan harian! 
+                                </p>
+                                <div class="inline-block bg-indigo-950/80 px-4 py-2 rounded-full border border-indigo-500/30 text-xs text-indigo-300 font-mono">
+                                    <i class="fa-solid fa-lightbulb text-yellow-400 mr-1"></i> Referensi: Lihat contoh infografik buku paket Bahasa Indonesia halaman 147
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div> <!-- End Topic: Biografi -->
 
-            </div>
-        </div>
+        </div> <!-- End Scroll Container -->
     </main>
 
     <script>
-        // Logic: Switch Meetings (Pills)
-        function switchMeeting(id) {
-            // Hide all contents
-            document.querySelectorAll('.meeting-content').forEach(el => {
+        // Logic: Switch Main Topic (Negosiasi vs Biografi)
+        function switchTopic(topicId, btn) {
+            // Hide all topics
+            document.querySelectorAll('.topic-content').forEach(el => {
                 el.classList.add('hidden');
-                el.classList.remove('fade-in'); // Reset animation
+                el.classList.remove('block');
             });
             
-            // Show selected
-            const selected = document.getElementById(`meeting-${id}`);
+            // Show selected topic
+            const selectedTopic = document.getElementById(`topic-${topicId}`);
+            selectedTopic.classList.remove('hidden');
+            selectedTopic.classList.add('block');
+
+            // Update sidebar navigation UI
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Reset scroll to top
+            document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Logic: Switch Meetings (Pills)
+        function switchMeeting(topicId, meetingId) {
+            const topicContainer = document.getElementById(`topic-${topicId}`);
+            
+            // Hide all meetings in current topic
+            topicContainer.querySelectorAll('.meeting-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in'); 
+            });
+            
+            // Show selected meeting
+            const selected = document.getElementById(`${topicId}-m${meetingId}`);
             selected.classList.remove('hidden');
             setTimeout(() => selected.classList.add('fade-in'), 10);
             
             // Update Pills UI
-            document.querySelectorAll('.meeting-pill').forEach(el => {
+            topicContainer.querySelectorAll('.meeting-pill').forEach(el => {
                 el.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg', 'border-indigo-500');
                 el.classList.add('text-slate-400', 'hover:text-white', 'border-transparent');
             });
             
-            const activeBtn = document.getElementById(`pill-m${id}`);
+            const activeBtn = document.getElementById(`pill-${topicId}-m${meetingId}`);
             activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'border-indigo-500');
             activeBtn.classList.remove('text-slate-400', 'hover:text-white', 'border-transparent');
 
@@ -525,7 +727,7 @@
             btn.classList.add('active');
         }
 
-        // Quiz Logic
+        // Quiz Logic for Negosiasi
         function checkScore() {
             const answers = { q1: 'b', q2: 'c', q3: 'c', q4: 'c', q5: 'd' };
             let score = 0;
