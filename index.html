@@ -813,27 +813,172 @@
                         </div>
                     </div>
 
-                    <!-- PUISI: PERTEMUAN 2 (LOCKED) -->
+                    <!-- PUISI: PERTEMUAN 2 -->
                     <div id="puisi-m2" class="meeting-content hidden fade-in">
-                        <div class="flex flex-col items-center justify-center py-20 text-center">
-                            <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 shadow-xl border border-slate-700">
-                                <i class="fa-solid fa-lock text-3xl text-slate-500"></i>
+                        <div class="mb-8">
+                            <span class="text-pink-400 font-bold text-xs tracking-wider uppercase mb-2 block">Diksi & Imaji</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Meraba Kata, Merasa Puisi 🔍</h3>
+                        </div>
+
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('puisi-p2-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('puisi-p2-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+
+                        <div id="puisi-p2-materi" class="content-section fade-in">
+                            <div class="grid gap-6">
+                                <!-- 1. Kata Konkret -->
+                                <div class="glass-card p-6 rounded-2xl border-l-4 border-indigo-500">
+                                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-cube text-indigo-400"></i> 1. Kata Konkret
+                                    </h4>
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                        Bayangkan kamu sedang sedih. Kalau kamu cuma bilang <span class="italic">"Aku sedang sedih"</span>, itu namanya kata abstrak. Orang tahu kamu sedih, tapi mereka tidak bisa "melihat" kesedihanmu.
+                                    </p>
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                        Nah, <strong>Kata Konkret</strong> adalah kata-kata yang menunjuk pada benda yang bisa dilihat, didengar, atau diraba secara nyata. Tujuannya supaya pembaca bisa membayangkan hal tersebut secara jelas.
+                                    </p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <h5 class="text-rose-400 font-bold text-sm mb-2">Abstrak</h5>
+                                            <p class="text-slate-400 text-sm italic">"Dia sangat kesepian." (Biasa saja, kan?)</p>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                            <h5 class="text-emerald-400 font-bold text-sm mb-2">Konkret</h5>
+                                            <p class="text-slate-400 text-sm italic">"Dia duduk diam menatap kursi kosong dan sisa puntung rokok yang dingin." (Lebih terasa "ngenes", kan?)</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/50 text-xs text-slate-300">
+                                        <i class="fa-solid fa-bolt text-yellow-400 mr-2"></i><strong>Singkatnya:</strong> Kata konkret adalah "benda nyata" yang mewakili perasaan atau keadaan.
+                                    </div>
+                                </div>
+
+                                <!-- 2. Citraan -->
+                                <div class="glass-card p-6 rounded-2xl">
+                                    <h4 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                                        <i class="fa-solid fa-eye text-pink-400"></i> 2. Citraan (Imaji)
+                                    </h4>
+                                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                        Kalau kata konkret adalah "bendanya", maka <strong>Citraan (Imaji)</strong> adalah cara kata-kata itu merangsang panca indra kita. Citraan membuat pembaca seolah-olah ikut melihat, mendengar, atau merasakan apa yang ada di dalam puisi.
+                                    </p>
+
+                                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-sky-500 transition">
+                                            <h5 class="text-sky-400 font-bold text-sm mb-1"><i class="fa-regular fa-eye mr-2"></i>Penglihatan (Visual)</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Seolah-olah kita melihat sesuatu.</p>
+                                            <div class="text-[11px] bg-slate-900 p-2 rounded text-slate-300 italic">Contoh dalam Puisi, Gadis itu memakai kerudung merah marun.</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-amber-500 transition">
+                                            <h5 class="text-amber-400 font-bold text-sm mb-1"><i class="fa-solid fa-headphones mr-2"></i>Pendengaran (Auditif)</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Seolah-olah mendengar suara.</p>
+                                            <div class="text-[11px] bg-slate-900 p-2 rounded text-slate-300 italic">Contoh dalam Puisi, Desis angin menyelinap di sela jendela.</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-emerald-500 transition">
+                                            <h5 class="text-emerald-400 font-bold text-sm mb-1"><i class="fa-solid fa-hand mr-2"></i>Perabaan (Taktil)</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Seolah-olah kulit kita menyentuh sesuatu.</p>
+                                            <div class="text-[11px] bg-slate-900 p-2 rounded text-slate-300 italic">Contoh dalam Puisi, Udara pagi yang menusuk tulang.</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-purple-500 transition">
+                                            <h5 class="text-purple-400 font-bold text-sm mb-1"><i class="fa-solid fa-person-running mr-2"></i>Gerak (Kinestetik)</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Seolah-olah ada sesuatu yang bergerak.</p>
+                                            <div class="text-[11px] bg-slate-900 p-2 rounded text-slate-300 italic">Contoh dalam Puisi, Ikan-ikan melompat girang di permukaan air.</div>
+                                        </div>
+                                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 hover:border-rose-500 transition">
+                                            <h5 class="text-rose-400 font-bold text-sm mb-1"><i class="fa-solid fa-wind mr-2"></i>Penciuman (Olfaktori)</h5>
+                                            <p class="text-slate-400 text-xs mb-2">Seolah-olah mencium bau.</p>
+                                            <div class="text-[11px] bg-slate-900 p-2 rounded text-slate-300 italic">Contoh dalam Puisi, Aroma tanah basah setelah hujan sore itu.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-indigo-900/30 p-4 rounded-xl border border-indigo-500/30 text-sm">
+                                        <strong class="text-indigo-300 block mb-1">Analogi Sederhana:</strong>
+                                        <p class="text-slate-300">
+                                            Kata Konkret itu seperti bahan makanan <span class="italic text-slate-400">(Cabai, Garam, Ayam)</span>. Citraan itu seperti rasa yang muncul saat kamu memakannya <span class="italic text-slate-400">(Pedas yang membakar lidah, Asin yang kuat)</span>.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Pertemuan 2 Terkunci</h3>
-                            <p class="text-slate-500 max-w-md">Materi ini belum dibuka. Fokus ke materi pertemuan 1 dulu ya, bestie!</p>
-                            <span class="mt-6 px-4 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-bold text-slate-500">SOON</span>
+                        </div>
+
+                        <!-- Tugas -->
+                        <div id="puisi-p2-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 px-4 py-1 bg-indigo-600 text-white text-[10px] font-black rounded-bl-xl">LATIHAN</div>
+                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-book-open text-indigo-400"></i> Tugas Buku Cetak
+                                </h4>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 text-sm text-slate-300 leading-relaxed">
+                                    <p>Kerjakan tugas halaman <strong>166-167</strong> buku cetak Bahasa Indonesia di buku tulis masing-masing.</p>
+                                    <p class="mt-2 text-indigo-300 font-medium italic">Salin ulang tabel dan jawab pertanyaannya! Semangat! 🔥</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- PUISI: PERTEMUAN 3 (LOCKED) -->
+                    <!-- PUISI: PERTEMUAN 3 -->
                     <div id="puisi-m3" class="meeting-content hidden fade-in">
-                        <div class="flex flex-col items-center justify-center py-20 text-center">
-                            <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 shadow-xl border border-slate-700">
-                                <i class="fa-solid fa-lock text-3xl text-slate-500"></i>
+                        <div class="mb-8">
+                            <span class="text-amber-400 font-bold text-xs tracking-wider uppercase mb-2 block">Musikalisasi Puisi</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Saatnya Kata Menjadi Nada 🎭</h3>
+                        </div>
+
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('puisi-p3-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('puisi-p3-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+
+                        <!-- Materi -->
+                        <div id="puisi-p3-materi" class="content-section fade-in">
+                            <div class="glass-card p-8 rounded-2xl mb-6 border-t-4 border-amber-500">
+                                <p class="text-slate-200 leading-relaxed mb-6 text-lg font-medium">
+                                    Hari ini bukan sekadar ulangan atau pengambilan nilai biasa. Hari ini adalah panggung bagi jiwa kalian. Selama ini kita telah membedah makna di balik baris-baris puisi, tapi sekarang saatnya kalian menghidupkannya.
+                                </p>
+                                
+                                <p class="text-slate-400 text-sm mb-4">Ingatlah bahwa:</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-amber-500/50 transition">
+                                        <i class="fa-solid fa-feather-pointed text-amber-400 text-2xl mb-3"></i>
+                                        <p class="text-slate-300 text-sm"><strong class="text-white">Puisi bukan sekadar tulisan:</strong> Ia adalah detak jantung yang menunggu untuk disuarakan.</p>
+                                    </div>
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-sky-500/50 transition">
+                                        <i class="fa-solid fa-music text-sky-400 text-2xl mb-3"></i>
+                                        <p class="text-slate-300 text-sm"><strong class="text-white">Musik bukan sekadar pengiring:</strong> Ia adalah emosi yang memperkuat setiap pesan yang ingin kalian sampaikan.</p>
+                                    </div>
+                                </div>
+
+                                <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                    Jangan takut untuk berekspresi! Tidak perlu khawatir suara kalian tidak semerdu penyanyi profesional atau petikan gitar kalian tidak sempurna. Yang Bapak/Ibu cari adalah <strong>kejujuran dalam menyampaikan rasa</strong> dan keberanian untuk meruntuhkan dinding malu.
+                                </p>
+
+                                <div class="bg-amber-900/20 border-l-4 border-amber-500 p-5 rounded-r-xl mb-6 text-center">
+                                    <p class="text-amber-300 italic font-bold text-lg leading-relaxed">
+                                        "Musikalisasi puisi adalah cara kita memberi nyawa pada kata-kata yang mati di atas kertas."
+                                    </p>
+                                </div>
+
+                                <p class="text-white font-semibold leading-relaxed p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">
+                                    Keluarkan energi kalian, resapi setiap baitnya, dan biarkan seisi kelas merasakan apa yang kalian rasakan. Ubah rasa gugup itu menjadi ledakan kreativitas di atas panggung! Kalian siap mengguncang kelas hari ini? Silakan bersiap, dan mari kita mulai!
+                                </p>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Pertemuan 3 Terkunci</h3>
-                            <p class="text-slate-500 max-w-md">Sabar, perjalanan masih panjang. Selesaikan misi sebelumnya untuk membuka materi ini!</p>
-                            <span class="mt-6 px-4 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-bold text-slate-500">SOON</span>
+                        </div>
+
+                        <!-- Tugas -->
+                        <div id="puisi-p3-tugas" class="content-section hidden fade-in">
+                            <div class="glass-card p-8 rounded-2xl border-2 border-amber-500/50 bg-amber-900/10 relative overflow-hidden text-center">
+                                <div class="absolute top-0 right-0 px-4 py-1 bg-pink-600 text-white text-[10px] font-black rounded-bl-xl uppercase tracking-tighter">KELOMPOK</div>
+                                <div class="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-amber-600/50 text-white text-2xl">
+                                    <i class="fa-solid fa-guitar"></i>
+                                </div>
+                                <h4 class="text-2xl font-bold text-white mb-3">Showtime! 🌟</h4>
+                                <p class="text-slate-300 leading-relaxed mb-6 max-w-lg mx-auto">
+                                    Buat musikalisasi puisi di depan kelas secara berkelompok! Puisi yang digunakan adalah <strong>"Jembatan" karya Sutardji Calzoum Bachri</strong>! Semangat!
+                                </p>
+                                <div class="inline-block bg-amber-950/80 px-4 py-2 rounded-full border border-amber-500/30 text-xs text-amber-300 font-mono">
+                                    <i class="fa-solid fa-microphone-lines text-white mr-2"></i>Berikan performa terbaik kalian!
+                                </div>
+                            </div>
                         </div>
                     </div>
 
