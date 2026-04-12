@@ -78,10 +78,9 @@
                 <span class="flex items-center gap-3"><i class="fa-solid fa-user-pen w-4"></i> Teks Biografi</span>
             </button>
 
-            <!-- Teks Puisi (Soon) -->
-            <button class="w-full text-left px-6 py-3 text-sm font-medium text-slate-600 cursor-not-allowed flex justify-between items-center">
+            <!-- Teks Puisi -->
+            <button onclick="switchTopic('puisi', this)" class="nav-item w-full text-left px-6 py-3 text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-800/50 transition flex justify-between items-center group">
                 <span class="flex items-center gap-3"><i class="fa-solid fa-feather-pointed w-4"></i> Teks Puisi</span>
-                <span class="text-[9px] bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded text-slate-500 font-bold">SOON</span>
             </button>
         </nav>
 
@@ -658,6 +657,188 @@
                     </div>
                 </div>
             </div> <!-- End Topic: Biografi -->
+
+            <!-- ======================= TOPIC: TEKS PUISI ======================= -->
+            <div id="topic-puisi" class="topic-content hidden">
+                <!-- Top Navigation (Pertemuan) -->
+                <header class="glass-header px-6 py-4 sticky top-0 z-20">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-5xl mx-auto w-full">
+                        <div>
+                            <h2 class="text-lg font-bold text-white">🖋️ Teks Puisi</h2>
+                            <p class="text-xs text-slate-500 hidden md:block">Kelas 10 • Fase E</p>
+                        </div>
+                        
+                        <!-- Pills Navigation -->
+                        <div class="flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-700/50 w-full md:w-auto overflow-x-auto no-scrollbar gap-1">
+                            <button onclick="switchMeeting('puisi', 1)" id="pill-puisi-m1" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-lg transition-all whitespace-nowrap border border-indigo-500">
+                                Pertemuan 1
+                            </button>
+                            <button onclick="switchMeeting('puisi', 2)" id="pill-puisi-m2" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 2
+                            </button>
+                            <button onclick="switchMeeting('puisi', 3)" id="pill-puisi-m3" class="meeting-pill flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 transition-all whitespace-nowrap border border-transparent">
+                                Pertemuan 3
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="p-4 md:p-8 max-w-4xl mx-auto pb-24">
+                    <!-- PUISI: PERTEMUAN 1 -->
+                    <div id="puisi-m1" class="meeting-content fade-in">
+                        <div class="mb-8">
+                            <span class="text-purple-400 font-bold text-xs tracking-wider uppercase mb-2 block">Diksi & Majas</span>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-white">Menyelami Makna Puisi ✨</h3>
+                        </div>
+
+                        <div class="flex gap-6 border-b border-slate-800 mb-6 overflow-x-auto">
+                            <button onclick="switchTab('puisi-p1-materi', this)" class="tab-btn active px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Materi Belajar</button>
+                            <button onclick="switchTab('puisi-p1-tugas', this)" class="tab-btn px-2 py-3 text-sm font-bold text-slate-400 hover:text-white whitespace-nowrap">Tugas</button>
+                        </div>
+
+                        <!-- Materi -->
+                        <div id="puisi-p1-materi" class="content-section fade-in">
+                            
+                            <!-- 1. Kata Konotatif -->
+                            <div class="glass-card p-6 rounded-2xl border-l-4 border-purple-500 mb-6">
+                                <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-gift text-purple-400"></i> 1. Kata Konotatif: Makna di Balik Kata
+                                </h4>
+                                <p class="text-slate-300 text-sm mb-4">Bayangkan kata itu seperti sebuah kado.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                        <h5 class="text-sky-400 font-bold text-sm mb-1">Denotatif</h5>
+                                        <p class="text-slate-400 text-xs">Bungkusnya (apa yang terlihat di kamus / makna sebenarnya).</p>
+                                    </div>
+                                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                        <h5 class="text-purple-400 font-bold text-sm mb-1">Konotatif</h5>
+                                        <p class="text-slate-400 text-xs">Isinya (perasaan atau nilai rasa yang muncul / makna kiasan).</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 mb-4">
+                                    <h5 class="text-white font-bold text-sm mb-2">Contoh Sederhana: Kata "Bunga" 🌸</h5>
+                                    <ul class="text-sm text-slate-300 space-y-2">
+                                        <li><strong class="text-sky-400">Denotatif (Makna asli):</strong> Bagian tumbuhan yang elok warnanya.</li>
+                                        <li><strong class="text-purple-400">Konotatif (Makna puisi):</strong> Gadis cantik, pujaan hati, atau lambang cinta.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="flex items-start gap-3 bg-purple-900/20 p-4 rounded-xl border border-purple-500/30">
+                                    <i class="fa-solid fa-lightbulb text-yellow-400 mt-1"></i>
+                                    <p class="text-xs text-purple-200 leading-relaxed">
+                                        <strong>Tips Cepat:</strong> Kalau kamu baca puisi dan merasa kata tersebut punya "vibe" atau perasaan tertentu, kemungkinan besar itu adalah kata konotatif.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 2. Majas -->
+                            <div class="glass-card p-6 rounded-2xl">
+                                <h4 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i> 2. Majas (Gaya Bahasa): Menghidupkan Kata
+                                </h4>
+                                <p class="text-slate-300 text-sm mb-6">
+                                    Majas itu seperti filter di media sosial. Dia mengubah tampilan kalimat yang biasa saja jadi lebih dramatis atau indah. Ada 4 majas "juara" yang wajib kamu tahu:
+                                </p>
+
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <!-- Personifikasi -->
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-pink-500 transition">
+                                        <h5 class="text-pink-400 font-bold mb-2">A. Personifikasi</h5>
+                                        <p class="text-slate-300 text-xs mb-3">Benda Mati Jadi "Manusia". Majas ini membuat benda mati seolah-olah punya nyawa dan bisa melakukan kegiatan manusia.</p>
+                                        <div class="bg-slate-900 p-3 rounded-lg text-xs border border-slate-700 mb-2">
+                                            <span class="text-slate-500">Contoh:</span><br>
+                                            <span class="text-white italic">"Pena itu menari-nari di atas kertas."</span><br>
+                                            <span class="text-slate-500 text-[10px]">(Padahal pena tidak punya kaki untuk menari)</span>
+                                        </div>
+                                        <p class="text-[11px] text-pink-300"><strong>Efeknya:</strong> Puisi jadi terasa lebih hidup dan ekspresif.</p>
+                                    </div>
+
+                                    <!-- Metafora -->
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-indigo-500 transition">
+                                        <h5 class="text-indigo-400 font-bold mb-2">B. Metafora</h5>
+                                        <p class="text-slate-300 text-xs mb-3">Perbandingan Langsung. Membandingkan dua hal secara langsung tanpa kata "seperti" atau "bagaikan". Kamu langsung menyebut benda A adalah benda B.</p>
+                                        <div class="bg-slate-900 p-3 rounded-lg text-xs border border-slate-700 mb-2">
+                                            <span class="text-slate-500">Contoh:</span><br>
+                                            <span class="text-white italic">"Perpustakaan adalah gudang ilmu."</span> atau <span class="text-white italic">"Dia adalah tulang punggung keluarga."</span>
+                                        </div>
+                                        <p class="text-[11px] text-indigo-300"><strong>Efeknya:</strong> Membuat imajinasi pembaca lebih tajam.</p>
+                                    </div>
+
+                                    <!-- Hiperbola -->
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-amber-500 transition">
+                                        <h5 class="text-amber-400 font-bold mb-2">C. Hiperbola</h5>
+                                        <p class="text-slate-300 text-xs mb-3">"Lebay" yang Indah. Majas yang melebih-lebihkan sesuatu untuk menekankan sebuah emosi.</p>
+                                        <div class="bg-slate-900 p-3 rounded-lg text-xs border border-slate-700 mb-2">
+                                            <span class="text-slate-500">Contoh:</span><br>
+                                            <span class="text-white italic">"Suaranya menggelegar membelah angkasa."</span> atau <span class="text-white italic">"Aku sudah menunggumu beribu-ribu tahun."</span>
+                                        </div>
+                                        <p class="text-[11px] text-amber-300"><strong>Efeknya:</strong> Memberikan kesan dramatis yang kuat.</p>
+                                    </div>
+
+                                    <!-- Simile -->
+                                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700 hover:border-emerald-500 transition">
+                                        <h5 class="text-emerald-400 font-bold mb-2">D. Simile</h5>
+                                        <p class="text-slate-300 text-xs mb-3">Perbandingan Tidak Langsung. Mirip metafora, tapi menggunakan kata penghubung seperti: <em>seperti, bagaikan, laksana, ibarat</em>.</p>
+                                        <div class="bg-slate-900 p-3 rounded-lg text-xs border border-slate-700 mb-2">
+                                            <span class="text-slate-500">Contoh:</span><br>
+                                            <span class="text-white italic">"Wajahnya bagaikan rembulan yang bersinar."</span> atau <span class="text-white italic">"Kau seperti angin yang tak tersentuh."</span>
+                                        </div>
+                                        <p class="text-[11px] text-emerald-300"><strong>Efeknya:</strong> Mempermudah pembaca membayangkan perbandingan yang dimaksud penyair.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Tugas -->
+                        <div id="puisi-p1-tugas" class="content-section hidden fade-in space-y-4">
+                            <div class="glass-card p-6 rounded-2xl border border-slate-700 relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 px-4 py-1 bg-indigo-600 text-white text-[10px] font-black rounded-bl-xl">CREATIVE</div>
+                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                    <i class="fa-brands fa-instagram text-pink-500"></i> Tugas Menulis & Sosial Media
+                                </h4>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 mb-4 text-sm text-slate-300 leading-relaxed space-y-3">
+                                    <p>Manfaatkan pengetahuan barumu tentang majas dan kata konotatif untuk membuat <strong>satu baris puisi</strong>.</p>
+                                    <p>Lalu, buat <strong>konten sederhana</strong> (bisa berupa foto aestetik dengan teks) untuk kamu unggah di sosial media.</p>
+                                </div>
+                                <div class="flex items-center gap-3 bg-indigo-900/20 p-4 rounded-xl border border-indigo-500/30">
+                                    <i class="fa-solid fa-gamepad text-indigo-400"></i>
+                                    <p class="text-xs text-indigo-200">
+                                        <strong>Wait!</strong> Namun sebelumnya, ikuti permainan yang akan dilakukan oleh guru di kelas! Semangat!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PUISI: PERTEMUAN 2 (LOCKED) -->
+                    <div id="puisi-m2" class="meeting-content hidden fade-in">
+                        <div class="flex flex-col items-center justify-center py-20 text-center">
+                            <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 shadow-xl border border-slate-700">
+                                <i class="fa-solid fa-lock text-3xl text-slate-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Pertemuan 2 Terkunci</h3>
+                            <p class="text-slate-500 max-w-md">Materi ini belum dibuka. Fokus ke materi pertemuan 1 dulu ya, bestie!</p>
+                            <span class="mt-6 px-4 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-bold text-slate-500">SOON</span>
+                        </div>
+                    </div>
+
+                    <!-- PUISI: PERTEMUAN 3 (LOCKED) -->
+                    <div id="puisi-m3" class="meeting-content hidden fade-in">
+                        <div class="flex flex-col items-center justify-center py-20 text-center">
+                            <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-6 shadow-xl border border-slate-700">
+                                <i class="fa-solid fa-lock text-3xl text-slate-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Pertemuan 3 Terkunci</h3>
+                            <p class="text-slate-500 max-w-md">Sabar, perjalanan masih panjang. Selesaikan misi sebelumnya untuk membuka materi ini!</p>
+                            <span class="mt-6 px-4 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs font-bold text-slate-500">SOON</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- End Topic: Puisi -->
 
         </div> <!-- End Scroll Container -->
     </main>
